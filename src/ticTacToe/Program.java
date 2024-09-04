@@ -9,14 +9,19 @@ public class Program {
 		
 		ComandManager cmd = new ComandManager();
 		
-		String[][] velha = {
-				{"X", "O", " "},
-				{" ", "X", " "},
-				{"O", " ", "X"}
-		};
+		String[][] velha = resetaJogo();
 		
-		UI.mostraVelha(velha);
-		
-		System.out.println(cmd.solicitaCoordenada(velha));
+		int player = 0;
+		while(true) {
+			UI.mostraVelha(velha);
+			int[] pos = cmd.solicitaCoordenada(velha);
+			if(player % 2 == 0) velha[pos[0]][pos[1]] = "X";
+			else velha[pos[0]][pos[1]] = "O";
+			player++;
+		}
+	}
+	
+	public static String[][] resetaJogo(){
+		return new String[][] {{" ", " ", " "}, {" ", " ", " "}, {" ", " ", " "}};
 	}
 }

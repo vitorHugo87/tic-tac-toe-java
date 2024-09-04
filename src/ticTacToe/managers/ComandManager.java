@@ -35,9 +35,7 @@ public class ComandManager {
 				continue;
 			}
 			
-			int[] posicoes = {a, b};
-			
-			return posicoes;
+			return new int[] {a,b};
 		}
 	}
 }
